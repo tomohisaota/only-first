@@ -1,4 +1,4 @@
-import {onlyYou} from "../src";
+import {onlyFirst} from "../src";
 
 const max = 100
 describe("onlyYou", () => {
@@ -6,7 +6,7 @@ describe("onlyYou", () => {
         let count = 0
         const promises: Promise<void>[] = []
         for (let i = 0; i < max; i++) {
-            promises.push(onlyYou("samekey", async () => {
+            promises.push(onlyFirst("samekey", async () => {
                 count++
             }))
         }
@@ -18,7 +18,7 @@ describe("onlyYou", () => {
         let count = 0
         const promises: Promise<void>[] = []
         for (let i = 0; i < max; i++) {
-            promises.push(onlyYou("samekey", async () => {
+            promises.push(onlyFirst("samekey", async () => {
                 count++
                 throw new Error("Stop here")
             }).catch(() => {
@@ -33,7 +33,7 @@ describe("onlyYou", () => {
     test('same key, one by one', async () => {
         let count = 0
         for (let i = 0; i < max; i++) {
-            await onlyYou("samekey", async () => {
+            await onlyFirst("samekey", async () => {
                 count++
             })
         }
@@ -44,7 +44,7 @@ describe("onlyYou", () => {
         let count = 0
         const promises: Promise<void>[] = []
         for (let i = 0; i < max; i++) {
-            promises.push(onlyYou(`${i}`, async () => {
+            promises.push(onlyFirst(`${i}`, async () => {
                 count++
             }))
         }
@@ -56,7 +56,7 @@ describe("onlyYou", () => {
         let count = 0
         const promises: Promise<void>[] = []
         for (let i = 0; i < max; i++) {
-            promises.push(onlyYou(`${i}`, async () => {
+            promises.push(onlyFirst(`${i}`, async () => {
                 count++
                 throw new Error("Stop here")
             }).catch(() => {

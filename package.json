@@ -1,5 +1,5 @@
 {
-  "name": "only-you",
+  "name": "only-first",
   "version": "1.0.0",
   "description": "Only one promise will be executed when multiple promises are called in parallel",
   "scripts": {
@@ -8,7 +8,7 @@
     "clean": "rm -r dist",
     "deploy": "npm run build&&npm publish&&npm run clean"
   },
-  "repository": "github:tomohisaota/only-you.git",
+  "repository": "github:tomohisaota/only-first.git",
   "author": "Tomohisa Ota",
   "license": "MIT",
   "devDependencies": {

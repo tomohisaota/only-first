@@ -1,19 +1,17 @@
-# only-you
+# only-first
 Only one promise will be executed when multiple promises are called in parallel. the others will be ignored.
-
-I love only you. I won't date with anyone else while I'm seeing you:-)
 
 # How to install
 
 ```shell
-npm install only-you
+npm install only-first
 ```
 
 # How to use
 
 ```typescript
 async function buttonClicked(){
-  await onlyYou("buttonIdentifier", async () => {
+  await onlyFirst("buttonIdentifier", async () => {
     // do something only once
   })   
 }
