@@ -1,0 +1,36 @@
+{
+  "name": "only-you",
+  "version": "1.0.0",
+  "description": "Only one promise will be executed when multiple promises are called in parallel",
+  "scripts": {
+    "build": "npx tsup ./src",
+    "test": "jest",
+    "clean": "rm -r dist",
+    "deploy": "npm run build&&npm publish&&npm run clean"
+  },
+  "repository": "github:tomohisaota/only-you.git",
+  "author": "Tomohisa Ota",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts"
+}
