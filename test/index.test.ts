@@ -66,4 +66,37 @@ describe("onlyYou", () => {
         await Promise.all(promises)
         expect(count).toEqual(max) // not with the same key
     });
+
+    test('same key, with return value', async () => {
+        let count = 0
+        const promises: Promise<number | undefined>[] = []
+        for (let i = 0; i < max; i++) {
+            promises.push(onlyFirst("samekey", async () => {
+                count++
+                return count
+            }))
+        }
+        const results = await Promise.all(promises)
+        expect(count).toEqual(1) // only once!!
+
+        // only first promise return value
+        expect(results).toEqual([1, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined, undefined, undefined,
+            undefined, undefined, undefined, undefined
+        ])
+    });
 })

@@ -1,6 +1,6 @@
 {
   "name": "only-first",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Only one promise will be executed when multiple promises are called in parallel",
   "scripts": {
     "build": "npx tsup ./src",
